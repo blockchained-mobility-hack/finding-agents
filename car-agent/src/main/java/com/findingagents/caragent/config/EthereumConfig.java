@@ -18,7 +18,7 @@ import java.io.IOException;
 @ConfigurationProperties(prefix = "caragent.ethereum")
 public class EthereumConfig {
 
-    private String walletPassword;
+    private String walletPassword = "password";
 
     @Bean
     Credentials getWalletCredentials() throws IOException, CipherException {

@@ -14,5 +14,6 @@ public class ChargingStation {
 
     @Id private String id;
     private String plugType;
-    private String geolocation;
+    private Long latitude;
+    private Long longitude;
 }

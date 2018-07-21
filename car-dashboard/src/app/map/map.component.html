@@ -12,11 +12,11 @@
   </aol-layer-tile>
 
   <aol-layer-vector>
-    <aol-source-cluster [distance]="distance">
+    <aol-source-cluster [distance]="5">
       <aol-source-vector>
         <aol-feature *ngFor="let cp of chargingStations">
           <aol-geometry-point>
-            <aol-coordinate [x]="cp.x" [y]="cp.y" [srid]="'EPSG:4326'"></aol-coordinate>
+            <aol-coordinate [x]="cp.geolocation.x" [y]="cp.geolocation.y" [srid]="'EPSG:4326'"></aol-coordinate>
           </aol-geometry-point>
         </aol-feature>
       </aol-source-vector>
@@ -35,7 +35,7 @@
   </aol-layer-vector>
 
 
-  <!-- draw polygon -->
+  <!-- draw polygon
   <aol-layer-vector >
     <aol-source-vector  #sourceVector></aol-source-vector>
   </aol-layer-vector>
@@ -44,4 +44,5 @@
   <aol-interaction-draw type="Polygon" [source]="sourceVector.instance" (onDrawStart)="startDrawing(sourceVector.instance)" (onDrawEnd)="endDrawing($event.feature)" >
 
   </aol-interaction-draw>
+  -->
 </aol-map>

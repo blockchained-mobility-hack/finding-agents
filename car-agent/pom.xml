@@ -58,6 +58,19 @@
 
         <dependency>
             <groupId>org.web3j</groupId>
+            <artifactId>crypto</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>utils</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.web3j</groupId>
             <artifactId>codegen</artifactId>
             <version>3.4.0</version>
         </dependency>
@@ -101,6 +114,49 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/java/</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>org.web3j.codegen.TruffleJsonFunctionWrapperGenerator</mainClass>
+                            <arguments>
+                                <argument>--solidityTypes</argument>
+                                <argument>${project.basedir}/src/main/resources/contracts/MyChargingStation.json</argument>
+                                <argument>-p</argument>
+                                <argument>com.findingagents.caragent</argument>
+                                <argument>-o</argument>
+                                <argument>${project.basedir}/src/main/java</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 

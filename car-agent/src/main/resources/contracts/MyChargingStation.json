@@ -181,8 +181,8 @@
           }
         ],
         "contractDependencies": [
-          22,
           12,
+          22,
           66
         ],
         "contractKind": "contract",
@@ -1050,8 +1050,8 @@
           }
         ],
         "contractDependencies": [
-          22,
           12,
+          22,
           66
         ],
         "contractKind": "contract",
@@ -1844,10 +1844,10 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x2e024b5693fe51e4685145fd9e107c04d88dc6c5",
-      "transactionHash": "0x121a25eac03b3a6fd45cde1d3a337702c946ee33b482aed4db3c2a937997cd9d"
+      "address": "0xccdbab6f3f7e57886b36db971762b66152a3c1a6",
+      "transactionHash": "0xd475857c685f9211be62af49f54498fe388a646e2f7dfd1aba0c929acb839419"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-21T17:22:54.188Z"
+  "updatedAt": "2018-07-21T16:32:05.613Z"
 }
