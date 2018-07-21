@@ -1,5 +1,7 @@
 package com.findingagents.caragent;
 
+import com.findingagents.caragent.model.ChargingStationModel;
+import com.findingagents.caragent.model.ChargingStationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,17 +12,19 @@ import org.web3j.abi.datatypes.generated.Bytes4;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.EthGetTransactionReceipt;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.gas.DefaultGasProvider;
 import org.web3j.utils.Numeric;
-import rx.Observable;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
-import java.util.Collections;
+import java.util.UUID;
 
 @Slf4j
 @SpringBootApplication
 public class CarAgentApplication {
+
+    private static final String CHARGING_STATION_INTERFACE = "0xbd8e1383";
+    private static final String ERC165_INTERFACE = "0x01ffc9a7";
 
     public static void main(String[] args) {
         SpringApplication.run(CarAgentApplication.class, args);
@@ -37,7 +41,6 @@ public class CarAgentApplication {
         };
     }
 
-    @Bean
     ApplicationRunner moreFun(Web3j web3j, Credentials credentials) throws IOException {
         return args -> {
             // get contract address
@@ -48,64 +51,50 @@ public class CarAgentApplication {
         };
     }
 
-    ApplicationRunner testMagic(Web3j web3j, Credentials credentials) {
+    @Bean
+    ApplicationRunner testMagic(Web3j web3j, Credentials credentials, ChargingStationRepository chargingStationRepository) {
         return args -> {
 
+            chargingStationRepository.deleteAll();
 
             web3j.transactionObservable()
-                 .map(tx -> {
-                     return tx.getTo();
-                 })
-                 .filter(contractAddress -> !contractAddress.equals("0x0"))
-                 .map(contractAddress -> {
-                     log.info("contract address: " + contractAddress);
-                     return contractAddress;
-
-                 })
-                 .flatMap(addr -> {
+                 .flatMap(tx -> web3j.ethGetTransactionReceipt(tx.getHash()).observable())
+                 .map(receipt -> receipt.getTransactionReceipt().orElse(null))
+                 .map(TransactionReceipt::getContractAddress)
+                 .filter(address -> {
+                     ERC165 contract = ERC165.load(address, web3j, credentials, DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT);
                      try {
-                         ERC165 contract = ERC165.load(addr, web3j, credentials, DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT);
-                         contract.supportsInterface(new Bytes4(Numeric.hexStringToByteArray("0xbd8e1383")))
-                                               .observable().retry(5).subscribe(result -> log.info("MAGIC" + result.getValue()));
+                         return contract.supportsInterface(new Bytes4(Numeric.hexStringToByteArray(ERC165_INTERFACE))).send().getValue();
+                     } catch (Exception e) {
+                        return false;
+                     }
+                 })
+                 .filter(address -> {
+                     ERC165 contract = ERC165.load(address, web3j, credentials, DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT);
+                     try {
+                         return contract.supportsInterface(new Bytes4(Numeric.hexStringToByteArray(CHARGING_STATION_INTERFACE))).send().getValue();
+                     } catch (Exception e) {
+                         return false;
+                     }
+                 })
+                 .subscribe(addr -> {
+                     try {
+                         ChargingStation chargingStation = ChargingStation.load(addr, web3j, credentials, DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT);
 
-                         return Observable.just("ignore");
+                         ChargingStationModel model = ChargingStationModel.builder()
+                                                                          .id(UUID.randomUUID().toString())
+                                                                          .latitude(Double.valueOf(chargingStation.getGeoLocation().send().getValue().split(",")[0]))
+                                                                          .longitude(Double.valueOf(chargingStation.getGeoLocation().send().getValue().split(",")[1]))
+                                                                          .build();
+
+                         log.info("saving: " + model.toString());
+                         chargingStationRepository.save(model);
 
                      } catch (Exception e) {
                          log.error(e.getMessage());
-                         return Observable.just("error");
+
                      }
-                 })
-
-                 .subscribe(
-                         result -> log.info("MAGIC: " + result)
-                 );
-
+                 });
         };
-    }
-
-    public static String asciiToHex(String asciiValue)
-    {
-        char[] chars = asciiValue.toCharArray();
-        StringBuffer hex = new StringBuffer();
-        for (char aChar : chars) {
-            hex.append(Integer.toHexString((int) aChar));
-        }
-
-        return hex.toString() + "".join("", Collections.nCopies(32 - (hex.length()/2), "00"));
-    }
-
-    public static String bytes32ToAscii(Bytes4 bytes32) {
-
-        return hexToASCII(DatatypeConverter.printHexBinary(bytes32.getValue()));
-    }
-
-    public static String hexToASCII(String hexValue) {
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < hexValue.length(); i += 2) {
-            String str = hexValue.substring(i, i + 2);
-            output.append((char) Integer.parseInt(str, 16));
-        }
-
-        return output.toString();
     }
 }

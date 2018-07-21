@@ -21,19 +21,30 @@ export class MapComponent implements OnInit {
   ngOnInit() {
 
     this.http
-      .post("http://localhost:8080/api/charging-stations", {
+      .get("http://localhost:8080/api/chargingStationModels", {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'my-auth-token'
         })
       })
-      .subscribe((locations: Array<{ plugtype: string, latitude: number, longitude: number }>) => {
-        for (let i = 0; i < locations.length; i++) {
+      .subscribe((locations: {
+          _embedded: {
+            chargingStationModels: [
+              {
+                plugType: string,
+                latitude: number,
+                longitude: number
+              }
+            ]
+          }
+       }) => {
+
+        for (let i = 0; i < locations._embedded.chargingStationModels.length; i++) {
           this.chargingStations.push({
-            plugtype: locations[i].plugtype,
+            plugtype: locations._embedded.chargingStationModels[i].plugType,
             geolocation: {
-              x: Number(locations[i].longitude.toFixed(4)),
-              y: Number(locations[i].latitude.toFixed(4))
+              x: Number(locations._embedded.chargingStationModels[i].longitude.toFixed(4)),
+              y: Number(locations._embedded.chargingStationModels[i].latitude.toFixed(4))
             }
           });
         }
