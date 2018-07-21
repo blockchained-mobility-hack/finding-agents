@@ -9,11 +9,13 @@ import org.web3j.abi.datatypes.Bool;
 import org.web3j.abi.datatypes.generated.Bytes4;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.EthGetTransactionReceipt;
 import org.web3j.tx.gas.DefaultGasProvider;
 import org.web3j.utils.Numeric;
 import rx.Observable;
 
 import javax.xml.bind.DatatypeConverter;
+import java.io.IOException;
 import java.util.Collections;
 
 @Slf4j
@@ -36,9 +38,18 @@ public class CarAgentApplication {
     }
 
     @Bean
+    ApplicationRunner moreFun(Web3j web3j, Credentials credentials) throws IOException {
+        return args -> {
+            // get contract address
+            EthGetTransactionReceipt transactionReceipt =
+                    web3j.ethGetTransactionReceipt("0xa14c0214bb8cabd91f6806e16803c0f42e3b392a5e6bbc8b2024e49c229011ed").send();
+
+            log.info(transactionReceipt.getTransactionReceipt().get().getContractAddress());
+        };
+    }
+
     ApplicationRunner testMagic(Web3j web3j, Credentials credentials) {
         return args -> {
-
 
 
             web3j.transactionObservable()
