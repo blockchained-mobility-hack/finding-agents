@@ -15,7 +15,7 @@ import java.io.IOException;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(prefix = "evac.car-gateway.ethereum")
+@ConfigurationProperties(prefix = "caragent.ethereum")
 public class EthereumConfig {
 
     private String walletPassword;
