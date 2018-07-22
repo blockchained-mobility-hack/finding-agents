@@ -14,14 +14,14 @@ public class CarAgentApplicationTests {
 
         log.info(erc165Hash(functionDefinitions));
 
-        String[] functionDefinitions = {
+        functionDefinitions = {
             "getPlugType()",
             "getGeoLocation()",
         };
 
         log.info(erc165Hash(functionDefinitions));
 
-        String[] functionDefinitions = {
+        functionDefinitions = {
             "getPlugType()",
             "getGeoLocation()",
             "getIotaAddress()",
