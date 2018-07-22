@@ -10,8 +10,8 @@ contract MyChargingStation is ChargingStation, ERC165MappingImplementation {
     string private plugType;
     string private iotaAddress;
 
-    constructor(string _geoLocation, string _plugType, string _iotaAddress) public {
-        supportedInterfaces[this.getPlugType.selector ^ this.getGeoLocation.selector] = true;
+    constructor(string _geoLocation, string _plugType) public {
+        supportedInterfaces[this.getPlugType.selector ^ this.getGeoLocation.selector ^ this.getIotaAddress.selector] = true;
 
         geoLocation = _geoLocation;
         plugType = _plugType;

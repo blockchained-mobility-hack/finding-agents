@@ -10,26 +10,37 @@ public class CarAgentApplicationTests {
 
     @Test
     public void generateHashes() {
+        String[] functionDefinitions = {"supportsInterface(bytes4)"}
 
-        byte[] magicBytes = new byte[4];
-        System.arraycopy(Hash.sha3("supportsInterface(bytes4)".getBytes()), 0, magicBytes, 0, 4);
+        log.info(Numeric.toHexString(erc165Hash(functionDefinitions)));
 
-        log.info(Numeric.toHexString(magicBytes));
-
-        // -----------
-
-        byte[] plugTypeBytes = new byte[4];
-        System.arraycopy(Hash.sha3("getPlugType()".getBytes()), 0, plugTypeBytes, 0, 4);
-
-        byte[] geoLocationBytes = new byte[4];
-        System.arraycopy(Hash.sha3("getGeoLocation()".getBytes()), 0, geoLocationBytes, 0, 4);
-
-        magicBytes = new byte[4];
-        for(int i = 0; i < 4; i++){
-            magicBytes[i] = (byte) (plugTypeBytes[i] ^ geoLocationBytes[i]);
+        String[] functionDefinitions = {
+            "getPlugType()",
+            "getGeoLocation()",
         }
 
-        log.info(Numeric.toHexString(magicBytes));
+        log.info(Numeric.toHexString(erc165Hash(functionDefinitions)));
+
+        String[] functionDefinitions = {
+            "getPlugType()",
+            "getGeoLocation()",
+            "getIotaAddress()",
+        }
+
+        log.info(Numeric.toHexString(erc165Hash(functionDefinitions)));
+    }
+
+    public static String erc165Hash(String ... functions) {
+        byte[] magicBytes = {0, 0, 0, 0};
+        byte[] functionSelectorBytes = new byte[4];
+
+        for(int i = 0; i < functions.length; i++) {
+            System.arraycopy(Hash.sha3(functions[i].getBytes()), 0, functionSelectorBytes, 0, 4);
+            for(int j = 0; j < 4; j++){
+                magicBytes[j] = (byte) (magicBytes[j] ^ functionSelectorBytes[j]);
+            }
+        }
+        return magicBytes;
     }
 
 }
