@@ -17,7 +17,7 @@ public class CarAgentApplicationTests {
         String[] functionDefinitions = {
             "getPlugType()",
             "getGeoLocation()",
-        }
+        };
 
         log.info(erc165Hash(functionDefinitions));
 
@@ -25,7 +25,7 @@ public class CarAgentApplicationTests {
             "getPlugType()",
             "getGeoLocation()",
             "getIotaAddress()",
-        }
+        };
 
         log.info(erc165Hash(functionDefinitions));
     }
