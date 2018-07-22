@@ -23,8 +23,12 @@ import java.util.UUID;
 @SpringBootApplication
 public class CarAgentApplication {
 
-    private static final String CHARGING_STATION_INTERFACE = "0x2563d851";
-    private static final String ERC165_INTERFACE = "0x01ffc9a7";
+    private static final String CHARGING_STATION_INTERFACE = ERC165Util.erc165Hash(
+            "getPlugType()",
+            "getGeoLocation()",
+            "getIotaAddress()");
+
+    private static final String ERC165_INTERFACE = ERC165Util.erc165Hash("supportsInterface(bytes4)");
 
     public static void main(String[] args) {
         SpringApplication.run(CarAgentApplication.class, args);

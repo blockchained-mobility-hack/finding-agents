@@ -5,7 +5,6 @@ import "./ERC165MappingImplementation.sol";
 
 contract MyChargingStation is ChargingStation, ERC165MappingImplementation {
 
-
     string private geoLocation;
     string private plugType;
     string private iotaAddress;

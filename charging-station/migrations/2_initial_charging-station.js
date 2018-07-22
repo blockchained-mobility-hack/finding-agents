@@ -1,5 +1,5 @@
 var MyChargingStation = artifacts.require("./MyChargingStation.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(MyChargingStation, "38.473639,-82.637583", "Type2", "NQQRBE9IJFYYHGKKEXWIIAVRGETUDQJPHVHSJTCRGJMKMGYJXYFFQKSCHO9QAGXXWX9IMITXNK99ELOSX");
+  deployer.deploy(MyChargingStation, "48.589728, 9.305515", "Type2", "NQQRBE9IJFYYHGKKEXWIIAVRGETUDQJPHVHSJTCRGJMKMGYJXYFFQKSCHO9QAGXXWX9IMITXNK99ELOSX");
 };

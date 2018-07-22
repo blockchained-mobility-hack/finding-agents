@@ -199,7 +199,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 237,
+                            "referencedDeclaration": 347,
                             "src": "281:4:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_ERC165MappingImplementation_$71",
@@ -456,7 +456,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 237,
+                        "referencedDeclaration": 347,
                         "src": "569:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_ERC165MappingImplementation_$71",
@@ -711,7 +711,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 237,
+                            "referencedDeclaration": 347,
                             "src": "281:4:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_ERC165MappingImplementation_$71",
@@ -968,7 +968,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 237,
+                        "referencedDeclaration": 347,
                         "src": "569:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_ERC165MappingImplementation_$71",
@@ -1077,5 +1077,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-22T09:23:17.874Z"
+  "updatedAt": "2018-07-22T09:39:06.289Z"
 }

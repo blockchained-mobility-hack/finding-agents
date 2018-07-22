@@ -342,7 +342,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 241,
+                                "referencedDeclaration": 351,
                                 "src": "402:4:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_MyChargingStation_$205",
@@ -389,7 +389,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 241,
+                                "referencedDeclaration": 351,
                                 "src": "430:4:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_MyChargingStation_$205",
@@ -442,7 +442,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 241,
+                              "referencedDeclaration": 351,
                               "src": "461:4:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_MyChargingStation_$205",
@@ -1260,7 +1260,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 241,
+                                "referencedDeclaration": 351,
                                 "src": "402:4:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_MyChargingStation_$205",
@@ -1307,7 +1307,7 @@
                                 "name": "this",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 241,
+                                "referencedDeclaration": 351,
                                 "src": "430:4:4",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_MyChargingStation_$205",
@@ -1360,7 +1360,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 241,
+                              "referencedDeclaration": 351,
                               "src": "461:4:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_MyChargingStation_$205",
@@ -1946,10 +1946,10 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x510edcd52354b0b6edddecc0cbc9d54add350813",
-      "transactionHash": "0x1503d229bc1ff1cea20dc314ba1ab94be0b6335d2e5f176aea4f6bbcac61f45a"
+      "address": "0x71399f0028a05c60084f0fa9c39b2e39b62db2bc",
+      "transactionHash": "0x085dd112535ea05711e6842b22135d52ff3fdff89d3541bd1ec62d1fc8037847"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-22T09:23:24.408Z"
+  "updatedAt": "2018-07-22T09:39:13.085Z"
 }
