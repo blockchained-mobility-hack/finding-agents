@@ -5,8 +5,8 @@ spring:
     rest:
       base-path: "/api"
 web3j:
-  client-address: "http://127.0.0.1:8545"
-  network-id: "5777"
+  client-address: "https://ropsten.infura.io"
+  network-id: "3"
   http-timeout-seconds: 60
 caragent:
   ethereum:
