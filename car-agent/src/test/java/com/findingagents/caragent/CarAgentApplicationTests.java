@@ -10,24 +10,24 @@ public class CarAgentApplicationTests {
 
     @Test
     public void generateHashes() {
-        String[] functionDefinitions = {"supportsInterface(bytes4)"}
+        String[] functionDefinitions = {"supportsInterface(bytes4)"};
 
         log.info(erc165Hash(functionDefinitions));
 
-        String[] functionDefinitions = {
+        String[] old = {
+            "getPlugType()",
+            "getGeoLocation()"
+        };
+
+        log.info(erc165Hash(old));
+
+        String[] notold = {
             "getPlugType()",
             "getGeoLocation()",
-        }
+            "getIotaAddress()"
+        };
 
-        log.info(erc165Hash(functionDefinitions));
-
-        String[] functionDefinitions = {
-            "getPlugType()",
-            "getGeoLocation()",
-            "getIotaAddress()",
-        }
-
-        log.info(erc165Hash(functionDefinitions));
+        log.info(erc165Hash(notold));
     }
 
     public static String erc165Hash(String ... functions) {
