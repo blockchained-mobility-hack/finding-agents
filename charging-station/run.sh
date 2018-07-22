@@ -4,7 +4,7 @@ cd iota-stream
 export IOTA_ADDRESS=$(nodejs generateKey.js)
 cd ..
 
-rm -fr build; truffle migrate
+rm -fr build; truffle migrate --network ddf
 
 cd iota-stream
 STATUS=available  nodejs stream.js

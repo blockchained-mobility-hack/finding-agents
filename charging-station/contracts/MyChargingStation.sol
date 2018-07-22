@@ -10,16 +10,12 @@ contract MyChargingStation is ChargingStation, ERC165MappingImplementation {
     string private plugType;
     string private iotaAddress;
 
-    constructor(string _geoLocation, string _plugType) public {
+    constructor(string _geoLocation, string _plugType, string _iotaAddress) public {
         supportedInterfaces[this.getPlugType.selector ^ this.getGeoLocation.selector ^ this.getIotaAddress.selector] = true;
 
         geoLocation = _geoLocation;
         plugType = _plugType;
         iotaAddress = _iotaAddress;
-    }
-
-    function getChargingStationInterfaceId() public view returns (bytes4){
-        return (this.getPlugType.selector ^ this.getGeoLocation.selector);
     }
 
     function getIotaAddress() public view returns (string) {
