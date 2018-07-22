@@ -2,7 +2,7 @@
   "contractName": "ChargingStation",
   "abi": [
     {
-      "constant": false,
+      "constant": true,
       "inputs": [],
       "name": "getPlugType",
       "outputs": [
@@ -12,7 +12,7 @@
         }
       ],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "pure",
       "type": "function"
     },
     {
@@ -28,22 +28,36 @@
       "payable": false,
       "stateMutability": "pure",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getIotaAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
     }
   ],
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.24;\n\ninterface ChargingStation {\n\n    function getPlugType() external returns (string);\n\n    function getGeoLocation() external pure returns(string);\n}",
+  "source": "pragma solidity ^0.4.24;\r\n\r\ninterface ChargingStation {\r\n\r\n    function getPlugType() external pure returns (string);\r\n\r\n    function getGeoLocation() external pure returns(string);\r\n    \r\n    function getIotaAddress() external pure returns(string);\r\n}\r\n",
   "sourcePath": "C:\\Users\\WEJ1WA3\\Projects\\blockchained-mobility\\finding-agents\\charging-station\\contracts\\ChargingStation.sol",
   "ast": {
     "absolutePath": "/C/Users/WEJ1WA3/Projects/blockchained-mobility/finding-agents/charging-station/contracts/ChargingStation.sol",
     "exportedSymbols": {
       "ChargingStation": [
-        12
+        17
       ]
     },
-    "id": 13,
+    "id": 18,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -63,9 +77,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 12,
+        "id": 17,
         "linearizedBaseContracts": [
-          12
+          17
         ],
         "name": "ChargingStation",
         "nodeType": "ContractDefinition",
@@ -76,7 +90,7 @@
             "id": 6,
             "implemented": false,
             "isConstructor": false,
-            "isDeclaredConst": false,
+            "isDeclaredConst": true,
             "modifiers": [],
             "name": "getPlugType",
             "nodeType": "FunctionDefinition",
@@ -84,7 +98,7 @@
               "id": 2,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "79:2:0"
+              "src": "83:2:0"
             },
             "payable": false,
             "returnParameters": {
@@ -97,7 +111,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 6,
-                  "src": "100:6:0",
+                  "src": "109:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -108,7 +122,7 @@
                     "id": 3,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "100:6:0",
+                    "src": "109:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -118,11 +132,11 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "99:8:0"
+              "src": "108:8:0"
             },
-            "scope": 12,
-            "src": "59:49:0",
-            "stateMutability": "nonpayable",
+            "scope": 17,
+            "src": "63:54:0",
+            "stateMutability": "pure",
             "superFunction": null,
             "visibility": "external"
           },
@@ -140,7 +154,7 @@
               "id": 7,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "137:2:0"
+              "src": "148:2:0"
             },
             "payable": false,
             "returnParameters": {
@@ -153,7 +167,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 11,
-                  "src": "162:6:0",
+                  "src": "173:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -164,7 +178,7 @@
                     "id": 8,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "162:6:0",
+                    "src": "173:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -174,29 +188,85 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "161:8:0"
+              "src": "172:8:0"
             },
-            "scope": 12,
-            "src": "114:56:0",
+            "scope": 17,
+            "src": "125:56:0",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 16,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getIotaAddress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 12,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "216:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16,
+                  "src": "241:6:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 13,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "240:8:0"
+            },
+            "scope": 17,
+            "src": "193:56:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13,
-        "src": "26:146:0"
+        "scope": 18,
+        "src": "28:224:0"
       }
     ],
-    "src": "0:172:0"
+    "src": "0:254:0"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/WEJ1WA3/Projects/blockchained-mobility/finding-agents/charging-station/contracts/ChargingStation.sol",
     "exportedSymbols": {
       "ChargingStation": [
-        12
+        17
       ]
     },
-    "id": 13,
+    "id": 18,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -216,9 +286,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 12,
+        "id": 17,
         "linearizedBaseContracts": [
-          12
+          17
         ],
         "name": "ChargingStation",
         "nodeType": "ContractDefinition",
@@ -229,7 +299,7 @@
             "id": 6,
             "implemented": false,
             "isConstructor": false,
-            "isDeclaredConst": false,
+            "isDeclaredConst": true,
             "modifiers": [],
             "name": "getPlugType",
             "nodeType": "FunctionDefinition",
@@ -237,7 +307,7 @@
               "id": 2,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "79:2:0"
+              "src": "83:2:0"
             },
             "payable": false,
             "returnParameters": {
@@ -250,7 +320,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 6,
-                  "src": "100:6:0",
+                  "src": "109:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -261,7 +331,7 @@
                     "id": 3,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "100:6:0",
+                    "src": "109:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -271,11 +341,11 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "99:8:0"
+              "src": "108:8:0"
             },
-            "scope": 12,
-            "src": "59:49:0",
-            "stateMutability": "nonpayable",
+            "scope": 17,
+            "src": "63:54:0",
+            "stateMutability": "pure",
             "superFunction": null,
             "visibility": "external"
           },
@@ -293,7 +363,7 @@
               "id": 7,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "137:2:0"
+              "src": "148:2:0"
             },
             "payable": false,
             "returnParameters": {
@@ -306,7 +376,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 11,
-                  "src": "162:6:0",
+                  "src": "173:6:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -317,7 +387,7 @@
                     "id": 8,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "162:6:0",
+                    "src": "173:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -327,20 +397,76 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "161:8:0"
+              "src": "172:8:0"
             },
-            "scope": 12,
-            "src": "114:56:0",
+            "scope": 17,
+            "src": "125:56:0",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 16,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getIotaAddress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 12,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "216:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16,
+                  "src": "241:6:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 13,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "240:8:0"
+            },
+            "scope": 17,
+            "src": "193:56:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13,
-        "src": "26:146:0"
+        "scope": 18,
+        "src": "28:224:0"
       }
     ],
-    "src": "0:172:0"
+    "src": "0:254:0"
   },
   "compiler": {
     "name": "solc",
@@ -348,5 +474,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-21T19:49:53.751Z"
+  "updatedAt": "2018-07-22T09:23:17.873Z"
 }

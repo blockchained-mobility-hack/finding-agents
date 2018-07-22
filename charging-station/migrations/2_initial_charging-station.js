@@ -1,5 +1,5 @@
 var MyChargingStation = artifacts.require("./MyChargingStation.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(MyChargingStation, "52.015480,8.538084", "Type2", process.env.IOTA_ADDRESS);
+  deployer.deploy(MyChargingStation, "38.473639,-82.637583", "Type2", "NQQRBE9IJFYYHGKKEXWIIAVRGETUDQJPHVHSJTCRGJMKMGYJXYFFQKSCHO9QAGXXWX9IMITXNK99ELOSX");
 };

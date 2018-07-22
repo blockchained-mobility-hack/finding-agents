@@ -31,14 +31,14 @@
     "absolutePath": "/C/Users/WEJ1WA3/Projects/blockchained-mobility/finding-agents/charging-station/contracts/ERC165.sol",
     "exportedSymbols": {
       "ERC165": [
-        22
+        27
       ]
     },
-    "id": 23,
+    "id": 28,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 14,
+        "id": 19,
         "literals": [
           "solidity",
           "^",
@@ -54,9 +54,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 22,
+        "id": 27,
         "linearizedBaseContracts": [
-          22
+          27
         ],
         "name": "ERC165",
         "nodeType": "ContractDefinition",
@@ -64,7 +64,7 @@
           {
             "body": null,
             "documentation": "@notice Query if a contract implements an interface\r\n @param interfaceID The interface identifier, as specified in ERC-165\r\n @dev Interface identification is specified in ERC-165. This function\r\n  uses less than 30,000 gas.\r\n @return `true` if the contract implements `interfaceID` and\r\n  `interfaceID` is not 0xffffffff, `false` otherwise\r",
-            "id": 21,
+            "id": 26,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -72,15 +72,15 @@
             "name": "supportsInterface",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 17,
+              "id": 22,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16,
+                  "id": 21,
                   "name": "interfaceID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 21,
+                  "scope": 26,
                   "src": "463:18:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -89,7 +89,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 15,
+                    "id": 20,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "463:6:1",
@@ -106,15 +106,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 20,
+              "id": 25,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 19,
+                  "id": 24,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 21,
+                  "scope": 26,
                   "src": "506:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -123,7 +123,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 18,
+                    "id": 23,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "506:4:1",
@@ -138,14 +138,14 @@
               ],
               "src": "505:6:1"
             },
-            "scope": 22,
+            "scope": 27,
             "src": "436:76:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 23,
+        "scope": 28,
         "src": "28:487:1"
       }
     ],
@@ -155,14 +155,14 @@
     "absolutePath": "/C/Users/WEJ1WA3/Projects/blockchained-mobility/finding-agents/charging-station/contracts/ERC165.sol",
     "exportedSymbols": {
       "ERC165": [
-        22
+        27
       ]
     },
-    "id": 23,
+    "id": 28,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 14,
+        "id": 19,
         "literals": [
           "solidity",
           "^",
@@ -178,9 +178,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 22,
+        "id": 27,
         "linearizedBaseContracts": [
-          22
+          27
         ],
         "name": "ERC165",
         "nodeType": "ContractDefinition",
@@ -188,7 +188,7 @@
           {
             "body": null,
             "documentation": "@notice Query if a contract implements an interface\r\n @param interfaceID The interface identifier, as specified in ERC-165\r\n @dev Interface identification is specified in ERC-165. This function\r\n  uses less than 30,000 gas.\r\n @return `true` if the contract implements `interfaceID` and\r\n  `interfaceID` is not 0xffffffff, `false` otherwise\r",
-            "id": 21,
+            "id": 26,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -196,15 +196,15 @@
             "name": "supportsInterface",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 17,
+              "id": 22,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16,
+                  "id": 21,
                   "name": "interfaceID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 21,
+                  "scope": 26,
                   "src": "463:18:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -213,7 +213,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 15,
+                    "id": 20,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "463:6:1",
@@ -230,15 +230,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 20,
+              "id": 25,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 19,
+                  "id": 24,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 21,
+                  "scope": 26,
                   "src": "506:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -247,7 +247,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 18,
+                    "id": 23,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "506:4:1",
@@ -262,14 +262,14 @@
               ],
               "src": "505:6:1"
             },
-            "scope": 22,
+            "scope": 27,
             "src": "436:76:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 23,
+        "scope": 28,
         "src": "28:487:1"
       }
     ],
@@ -281,5 +281,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-21T19:49:53.751Z"
+  "updatedAt": "2018-07-22T09:23:17.874Z"
 }
