@@ -10,7 +10,7 @@ public class CarAgentApplicationTests {
 
     @Test
     public void generateHashes() {
-        String[] functionDefinitions = {"supportsInterface(bytes4)"}
+        String[] functionDefinitions = {"supportsInterface(bytes4)"};
 
         log.info(erc165Hash(functionDefinitions));
 
