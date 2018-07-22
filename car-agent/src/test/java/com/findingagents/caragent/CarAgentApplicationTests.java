@@ -15,8 +15,9 @@ public class CarAgentApplicationTests {
         log.info(erc165Hash(functionDefinitions));
 
         String[] old = {
-            "getPlugType()",
-            "getGeoLocation()"
+            "getAvailability()",
+            "getGeoLocation()",
+            "getIotaAddress()"
         };
 
         log.info(erc165Hash(old));

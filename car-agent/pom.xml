@@ -146,7 +146,7 @@
                             <mainClass>org.web3j.codegen.TruffleJsonFunctionWrapperGenerator</mainClass>
                             <arguments>
                                 <argument>--solidityTypes</argument>
-                                <argument>${project.basedir}/src/main/resources/contracts/MyChargingStation.json</argument>
+                                <argument>${project.basedir}/src/main/resources/contracts/ParkingLot.json</argument>
                                 <argument>-p</argument>
                                 <argument>com.findingagents.caragent</argument>
                                 <argument>-o</argument>
