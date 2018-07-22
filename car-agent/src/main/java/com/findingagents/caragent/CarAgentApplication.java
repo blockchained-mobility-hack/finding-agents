@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.web3j.abi.datatypes.Bool;
 import org.web3j.abi.datatypes.generated.Bytes4;
 import org.web3j.crypto.Credentials;
@@ -22,7 +23,7 @@ import java.util.UUID;
 @SpringBootApplication
 public class CarAgentApplication {
 
-    private static final String CHARGING_STATION_INTERFACE = "0xbd8e1383";
+    private static final String CHARGING_STATION_INTERFACE = "0x2563d851";
     private static final String ERC165_INTERFACE = "0x01ffc9a7";
 
     public static void main(String[] args) {
@@ -50,6 +51,7 @@ public class CarAgentApplication {
         };
     }
 
+    @Bean
     ApplicationRunner testMagic(Web3j web3j, Credentials credentials, ChargingStationRepository chargingStationRepository) {
         return args -> {
 
