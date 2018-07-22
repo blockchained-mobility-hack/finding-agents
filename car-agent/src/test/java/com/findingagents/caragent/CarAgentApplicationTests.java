@@ -12,14 +12,14 @@ public class CarAgentApplicationTests {
     public void generateHashes() {
         String[] functionDefinitions = {"supportsInterface(bytes4)"}
 
-        log.info(Numeric.toHexString(erc165Hash(functionDefinitions)));
+        log.info(erc165Hash(functionDefinitions));
 
         String[] functionDefinitions = {
             "getPlugType()",
             "getGeoLocation()",
         }
 
-        log.info(Numeric.toHexString(erc165Hash(functionDefinitions)));
+        log.info(erc165Hash(functionDefinitions));
 
         String[] functionDefinitions = {
             "getPlugType()",
@@ -27,7 +27,7 @@ public class CarAgentApplicationTests {
             "getIotaAddress()",
         }
 
-        log.info(Numeric.toHexString(erc165Hash(functionDefinitions)));
+        log.info(erc165Hash(functionDefinitions));
     }
 
     public static String erc165Hash(String ... functions) {
@@ -40,7 +40,7 @@ public class CarAgentApplicationTests {
                 magicBytes[j] = (byte) (magicBytes[j] ^ functionSelectorBytes[j]);
             }
         }
-        return magicBytes;
+        return Numeric.toHexString(magicBytes);
     }
 
 }
