@@ -24,6 +24,7 @@ import java.util.UUID;
 public class CarAgentApplication {
 
     private static final String CHARGING_STATION_INTERFACE = "0x2563d851";
+    private static final String PARKING_LOT_INTERFACE = "0xacff3165";
     private static final String ERC165_INTERFACE = "0x01ffc9a7";
 
     public static void main(String[] args) {
